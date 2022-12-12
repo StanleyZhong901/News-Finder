@@ -12,6 +12,7 @@ What to work on:
   articleScrape()
   - Differentiate websites
   - Incorporate 9 News and ABC
+  - Test to make sure it works
 '''
 print(db.keys())
 URL = input("Input Website: ")
