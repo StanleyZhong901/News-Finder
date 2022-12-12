@@ -12,7 +12,6 @@ What to work on:
   articleScrape()
   - Differentiate websites
   - Incorporate 9 News and ABC
-  - Test to make sure it works
 '''
 print(db.keys())
 URL = input("Input Website: ")
@@ -73,6 +72,7 @@ def webScrape(URL):
     #   hyperLink = "https://www.abc.net.au/" + hyperLink.get('href')
     #   printInfo(header, hyperLink)
     return 0
+
 
 def articleScrape(URL):
   page = requests.get(URL)
