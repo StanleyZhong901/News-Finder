@@ -2,18 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 from replit import db
 
-'''
-Websites added to the Database:
-  type in db.keys() in the console
-  
-What to work on:
-
-  New Ideas:
-  - Implement AnimeNewsNetwork
-  
-  webScrape()
-  - AnimeNewsNetwork hyperLink not working, alternates between (-1) and (none or a link)
-'''
 print(db.keys())
 
 URL = input("Input Website: ")
@@ -131,25 +119,6 @@ def webScrape(URL):
 
   if URL_HTML == db["ANIMENEWSNETWORK"]:
     most_read = webContent.find("div", id="mainfeed")
-    most_read = most_read.find("div", class_="mainfeed-day")
-    most_read = most_read.find("div", class_="mainfeed-section herald-boxes")
-  
-    for i in most_read:
-      #Check if the tag is NavigableString
-      if str(type(i)) == "<class 'bs4.element.NavigableString'>":
-        continue
-        
-      else:
-        hyperLink = i.find("div", class_="thumbnail")
-        hyperLink = hyperLink.find("a")
-        hyperLink = "https://www.animenewsnetwork.com" + hyperLink.get("href")
-        header = requests.get(hyperLink)
-        header = BeautifulSoup(header.text, "html.parser")
-        header = header.find("h1")
-        header = header.find(class_="sub-title").string
-        print(header)
-        print(hyperLink)
-        printInfo(header, hyperLink)
 
 
 if URL:
